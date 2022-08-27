@@ -1,0 +1,23 @@
+
+name: CI
+on:
+  push:
+    branches: [ "main", "develop", "release" ]
+
+  pull_request:
+    branches: [ "main", "develop", "release" ]
+
+jobs:
+  test_script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: just run test script
+        run: bash -n testfile.sh
+
+  # run_script:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run shell script
+  #       run: echo Hello, world!
