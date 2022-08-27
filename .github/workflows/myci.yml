@@ -17,6 +17,7 @@ jobs:
 
   run_script:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} #This prevent the second stage to trigger on PR
     needs: test_script
     steps:
       - uses: actions/checkout@v3
